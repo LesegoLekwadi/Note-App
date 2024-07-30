@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    margin: 0;
+}
+body.modal-open {
+    padding-right: 0 !important; /* Adjust as needed */
+    overflow: hidden !important; /* Optional: Hide scrollbars when modal is open */
+  }
+ 
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
