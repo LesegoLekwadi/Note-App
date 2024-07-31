@@ -1,0 +1,8 @@
+<div class="categories">
+    <h2>Categories</h2>
+    <div *ngFor="let category of categories" class="category-card">
+      <h3>{{ category.name }}</h3>
+      <p>{{ category.notes.length }} Notes</p>
+      <button [routerLink]="['/notes', category.name]">View Notes</button>
+    </div>
+  </div>

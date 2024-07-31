@@ -1,38 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Note } from '../notes/notes';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
 
-  private notes: Note[] = [];
-  private nextId = 1;
-
-  constructor() { }
-
-  getNotes(): Note[] {
-    return this.notes;
-  }
-
-  getNoteById(id: number): Note | undefined {
-    return this.notes.find(note => note.id === id);
-  }
-
-  addNote(note: Note): void {
-    note.id = this.nextId++;
-    note.createdDate = new Date();
-    this.notes.push(note);
-  }
-
-  updateNote(updatedNote: Note): void {
-    const index = this.notes.findIndex(note => note.id === updatedNote.id);
-    if (index > -1) {
-      this.notes[index] = updatedNote;
+    private baseUrl = 'http://localhost:8080/api/notes';
+    
+    constructor(private http: HttpClient) { }
+  
+    getNotes(): Observable<any> {
+      return this.http.get(`${this.baseUrl}`);
     }
-  }
-
-  deleteNote(id: number): void {
-    this.notes = this.notes.filter(note => note.id !== id);
-  }
+  
+    createOrUpdate(note: any): Observable<any> {
+      return this.http.post(`${this.baseUrl}`, note);
+    }
+  
+    delete(id: number): Observable<any> {
+      return this.http.delete(`${this.baseUrl}/${id}`);
+    }
+  
 }
