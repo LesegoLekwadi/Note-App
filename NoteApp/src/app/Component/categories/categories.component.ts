@@ -6,13 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent {
-categories= [
-  { name: 'Design', notes: [] },
-  { name: 'Success', notes: [] },
-  { name: 'Scientific', notes: [] },
-  { name: 'Freelancer', notes: [] }
-];
-
-ngOnInit(): void { }
+  categories = [
+    { name: 'Design', notesCount: 15 },
+    { name: 'Success', notesCount: 45 },
+    { name: 'Scientific', notesCount: 29 },
+    { name: 'Freelancer', notesCount: 19 }
+  ];
 
 }

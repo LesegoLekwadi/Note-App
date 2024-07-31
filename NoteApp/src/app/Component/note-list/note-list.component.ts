@@ -8,31 +8,30 @@ import { NotesService } from 'src/app/Services/notes.service';
   styleUrls: ['./note-list.component.scss']
 })
 export class NoteListComponent{
-createNote() {
-throw new Error('Method not implemented.');
-}
-editNote(_t7: any) {
-throw new Error('Method not implemented.');
-}
 
-  notes: any[] = [];
-  
-  constructor(private noteService: NotesService) { }
+  notes = [
+    {
+      title: 'How To Draw A Professional Wireframe?',
+      description: 'For Wireframe Design, You Need To Have A Pen And Paper With You, And Using These Two, You Can Design The Idea You Want On Paper For Web Or Mobile, Just Learn....',
+      tags: ['Design', 'Wireframe'],
+      date: '2020/05/09',
+      new: true
+    },
+    {
+      title: 'Ways To Succeed Early',
+      description: '...',
+      tags: ['Succeed', 'Goals'],
+      date: '2020/05/09',
+      new: false
+    },
+    {
+      title: 'Scientific Facts Of Space',
+      description: '...',
+      tags: ['Scientific', 'Space'],
+      date: '2020/05/09',
+      new: false
+    }
+  ];
 
-  ngOnInit(): void {
-    this.loadNotes();
-  }
-
-  loadNotes() {
-    this.noteService.getNotes().subscribe((data: any[]) => {
-      this.notes = data;
-    });
-  }
-
-  deleteNote(id: number) {
-    this.noteService.delete(id).subscribe(() => {
-      this.loadNotes();
-    });
-  }
 
 }

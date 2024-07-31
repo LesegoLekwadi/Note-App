@@ -1,0 +1,100 @@
+.login-screen {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .login-container {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .login-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login-container .google-login-button {
+    background-color: #4285F4;
+    color: white;
+  }
+  
+  .login-container .facebook-login-button {
+    background-color: #3B5998;
+    color: white;
+  }
+  
+  .login-container .twitter-login-button {
+    background-color: #1DA1F2;
+    color: white;
+  }
+  
+  .login-container .or-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .login-container .or-divider hr {
+    flex: 1;
+    border: 1px solid #ccc;
+    margin: 0 10px;
+  }
+  
+  .login-container form {
+    width: 100%;
+  }
+  
+  .login-container .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .login-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .login-container .show-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .login-container .forgot-password {
+    display: block;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  .login-container .login-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .login-container p {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

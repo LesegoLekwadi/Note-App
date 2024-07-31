@@ -1,0 +1,33 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:#C99180;
+    color: #fff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .logo img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+    margin-top: 10px;
+    width: 80%;
+  }
+  
+  .select {
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+  }
