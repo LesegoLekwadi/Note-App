@@ -1,41 +1,41 @@
 <div class="notes-container">
-    <header class="app-header">
-      <div class="logo">
-        <img src="path-to-your-logo-image.png" alt="Lao Note Logo">
-        <span>Lao Note</span>
-      </div>
-      <div class="icons">
-        <img src="path-to-refresh-icon.png" alt="Refresh">
-        <img src="path-to-notification-icon.png" alt="Notifications">
-      </div>
+  <header class="app-header">
+    <div class="logo">
+      <img src="path-to-your-logo-image.png" alt="Lao Note Logo">
+      <span>Lao Note</span>
+    </div>
+    <div class="icons">
+      <img src="path-to-refresh-icon.png" alt="Refresh">
+      <img src="path-to-notification-icon.png" alt="Notifications">
+    </div>
+  </header>
+  <nav class="tabs">
+    <button class="active">Notes</button>
+    <button>Highlights</button>
+    <button>Favorite Notes</button>
+  </nav>
+  <section class="notes-list">
+    <header class="list-header">
+      <h2>List Notes</h2>
+      <span>All Notes</span>
     </header>
-    <nav class="tabs">
-      <button class="active">Notes</button>
-      <button>Highlights</button>
-      <button>Favorite Notes</button>
-    </nav>
-    <section class="notes-list">
-      <header class="list-header">
-        <h2>List Notes</h2>
-        <span>All Notes</span>
-      </header>
-      <div class="note-card" *ngFor="let note of notes">
-        <h3>{{ note.title }}</h3>
-        <p>{{ note.description }}</p>
-        <div class="tags">
-          <span *ngFor="let tag of note.tags">{{ tag }}</span>
-        </div>
-        <footer>
-          <span>{{ note.date }}</span>
-        </footer>
-        <div class="new-badge" *ngIf="note.new">New</div>
+    <div class="note-card" *ngFor="let note of notes">
+      <h3>{{ note.title }}</h3>
+      <p>{{ note.description }}</p>
+      <div class="tags">
+        <span *ngFor="let tag of note.tags">{{ tag }}</span>
       </div>
-    </section>
-    <footer class="bottom-nav">
-      <button class="nav-button home"></button>
-      <button class="nav-button crown"></button>
-      <button class="nav-button grid"></button>
-      <button class="nav-button settings"></button>
-    </footer>
-    <button class="add-note-button">+</button>
-  </div>
+      <footer>
+        <span>{{ note.date }}</span>
+      </footer>
+      <div class="new-badge" *ngIf="note.new">New</div>
+    </div>
+  </section>
+  <footer class="bottom-nav">
+    <button class="nav-button home"></button>
+    <button class="nav-button crown"></button>
+    <button class="nav-button grid"></button>
+    <button class="nav-button settings"></button>
+  </footer>
+  <button class="add-note-button">+</button>
+</div>

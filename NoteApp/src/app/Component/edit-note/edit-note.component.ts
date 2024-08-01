@@ -23,17 +23,21 @@ export class EditNoteComponent {
   ) { }
 
   ngOnInit(): void {
-    const noteId = this.route.snapshot.paramMap.get('id');
-    if (noteId) {
-      this.noteService.getNoteById(+noteId).subscribe(note => {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.noteService.getNoteById(id).subscribe((note: Note) => {
         this.note = note;
       });
     }
   }
 
   saveNote(): void {
-    this.noteService.saveOrUpdate(this.note).subscribe(() => {
+    this.noteService.updateNote(this.note).subscribe(() => {
       this.router.navigate(['/notes']);
     });
+  }
+
+  cancel(): void {
+    this.router.navigate(['/notes']);
   }
 }

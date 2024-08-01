@@ -11,20 +11,16 @@ export class NotesService {
 
   constructor(private http: HttpClient) { }
 
-  getNotes(): Observable<Note[]> {
-    return this.http.get<Note[]>(this.apiUrl);
+  getNotes(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
-  getNoteById(id: number): Observable<Note> {
-    return this.http.get<Note>(`${this.apiUrl}/${id}`);
+  getNoteById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
-  saveOrUpdate(note: Note): Observable<Note> {
-    return this.http.post<Note>(this.apiUrl, note);
-  }
-
-  deleteNoteById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  updateNote(note: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${note.id}`, note);
   }
   
 }

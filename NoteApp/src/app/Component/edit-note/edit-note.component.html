@@ -1,25 +1,24 @@
-
 <div class="container-fluid edit-note-container">
-    <header class="app-header d-flex justify-content-between align-items-center py-3">
-      <button class="btn btn-outline-secondary rounded-circle"><i class="bi bi-x"></i></button>
-      <h1 class="h5 mb-0">Edit Note</h1>
-      <button class="btn btn-outline-secondary rounded-circle"><i class="bi bi-check"></i></button>
-    </header>
-    <div class="form-group">
-      <label for="noteTitle" class="form-label">Title</label>
-      <input type="text" id="noteTitle" class="form-control" [(ngModel)]="note.title">
-    </div>
-    <div class="form-group">
-      <label for="noteContent" class="form-label">Content</label>
-      <textarea id="noteContent" class="form-control" rows="10" [(ngModel)]="note.content"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="noteCategory" class="form-label">Category</label>
-      <input type="text" id="noteCategory" class="form-control" [(ngModel)]="note.category">
-    </div>
-    <div class="form-group">
-      <label for="noteTags" class="form-label">Tags</label>
-      <input type="text" id="noteTags" class="form-control" [(ngModel)]="note.tags">
-    </div>
+  <header class="app-header d-flex justify-content-between align-items-center py-3">
+    <button class="btn btn-outline-secondary rounded-circle" (click)="cancel()"><i class="bi bi-x"></i></button>
+    <h1 class="h5 mb-0">Edit Note</h1>
+    <button class="btn btn-outline-secondary rounded-circle" (click)="saveNote()"><i class="bi bi-check"></i></button>
+  </header>
+  <div class="form-group">
+    <label for="noteTitle" class="form-label">Title</label>
+    <input type="text" id="noteTitle" class="form-control" [(ngModel)]="note.title">
   </div>
-  
+  <div class="form-group">
+    <label for="noteContent" class="form-label">Content</label>
+    <textarea id="noteContent" class="form-control" rows="10" [(ngModel)]="note.content"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="noteCategory" class="form-label">Category</label>
+    <input type="text" id="noteCategory" class="form-control" [(ngModel)]="note.category">
+  </div>
+  <div class="form-group">
+    <label for="noteTags" class="form-label">Tags</label>
+    <input type="text" id="noteTags" class="form-control" [(ngModel)]="note.tags">
+  </div>
+</div>
+
