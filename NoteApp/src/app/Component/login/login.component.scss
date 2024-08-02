@@ -1,15 +1,28 @@
+
+
 .login-screen {
-    text-align: center;
-    padding: 20px;
-  }
+  text-align: center;
+  padding: 20px;
+  background: url("/assets/images/pink.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh; /* Make the height of the container fill the entire viewport */
+  margin: 0; /* Remove any default margins */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
   
   .login-container {
     width: 300px;
     margin: 0 auto;
+   
   }
   
   .login-container h2 {
     margin-bottom: 20px;
+    font-weight: 900;
   }
   
   .login-container button {
@@ -18,25 +31,15 @@
     padding: 10px;
     margin-bottom: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
   }
   
   .login-container .google-login-button {
-    background-color: #4285F4;
+    background-color: #89aae0;
     color: white;
   }
-  
-  .login-container .facebook-login-button {
-    background-color: #3B5998;
-    color: white;
-  }
-  
-  .login-container .twitter-login-button {
-    background-color: #1DA1F2;
-    color: white;
-  }
-  
+    
   .login-container .or-divider {
     display: flex;
     align-items: center;
@@ -61,13 +64,14 @@
   .login-container label {
     display: block;
     margin-bottom: 5px;
+    font-weight: 800;
   }
   
   .login-container input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px;
   }
   
   .login-container .show-password {
@@ -85,7 +89,7 @@
   }
   
   .login-container .login-button {
-    background-color: #4CAF50;
+    background-color:pink;
     color: white;
     padding: 10px 20px;
     border: none;
