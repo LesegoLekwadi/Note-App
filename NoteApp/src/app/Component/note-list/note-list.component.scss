@@ -25,11 +25,24 @@
     margin-right: 10px;
   }
   
-  .icons img {
+  .icons button {
+    position: relative; /* Set the button as the positioning context */
     width: 24px;
     height: 24px;
     margin-left: 10px;
-  }
+    background: transparent; /* Optional: make the button background transparent */
+    border: none; /* Remove border if you want a cleaner look */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.icons button span {
+    position: absolute; /* Position the icon absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the icon size */
+    font-size: 16px; /* Adjust the size of the icon */
+    color: #000; /* Set the icon color */
+}
   
   .tabs {
     display: flex;
@@ -124,7 +137,7 @@
   
   .add-note-button {
     position: absolute;
-    bottom: 70px;
+    bottom: 10px;
     right: 20px;
     width: 50px;
     height: 50px;
@@ -137,4 +150,6 @@
     font-size: 24px;
     border: none;
   }
+
+  
   

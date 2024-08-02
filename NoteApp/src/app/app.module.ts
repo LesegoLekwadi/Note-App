@@ -5,20 +5,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router'; // Import RouterModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Component/home/home.component';
 import { CategoriesComponent } from './Component/categories/categories.component';
 import { NoteListComponent } from './Component/note-list/note-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LandingPageComponent } from './Component/landing-page/landing-page.component';
 import { LoginComponent } from './Component/login/login.component';
 import { IntroComponent } from './Component/intro/intro.component';
 import { RegisterComponent } from './Component/register/register.component';
 import { EditNoteComponent } from './Component/edit-note/edit-note.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     CategoriesComponent,
     NoteListComponent,
     LandingPageComponent,
@@ -31,7 +30,9 @@ import { EditNoteComponent } from './Component/edit-note/edit-note.component';
     BrowserModule,
     AppRoutingModule,
     RouterModule, // Add RouterModule to the imports array
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

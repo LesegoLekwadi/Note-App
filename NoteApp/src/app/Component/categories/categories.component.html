@@ -3,16 +3,18 @@
     <h1 class="h5 mb-0">Categories</h1>
     <button class="btn btn-outline-secondary rounded-circle" (click)="addCategory()"><i class="bi bi-plus"></i></button>
   </header>
-  <div class="d-flex justify-content-between align-items-center my-3">
+  <div class="d-flex justify-content-between align-items-center ">
     <h2 class="h6 mb-0">List Categories</h2>
     <button class="btn btn-outline-secondary" (click)="addCategory()">New</button>
   </div>
   <div class="row">
     <div class="col-6 col-md-3" *ngFor="let category of categories">
       <div class="category-card text-center p-3 mb-3">
+
         <div class="category-icon mb-2">
-          <img src="path-to-your-folder-icon.png" alt="Folder Icon">
+        <img src="path-to-your-folder-icon.png" alt="Folder Icon">
         </div>
+
         <h3 class="h6">{{ category.name }}</h3>
         <p class="mb-0">{{ category.notesCount }} Notes</p>
       </div>
@@ -21,10 +23,5 @@
   <div class="text-center mt-4">
     <p>You Have {{ categories.length }} Categories</p>
   </div>
-  <footer class="bottom-nav">
-    <button class="nav-button home"></button>
-    <button class="nav-button crown"></button>
-    <button class="nav-button grid"></button>
-    <button class="nav-button settings"></button>
-  </footer>
+
 </div>

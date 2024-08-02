@@ -1,0 +1,41 @@
+.register-container {
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    background: url("/assets/images/bubbles.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh; /* Make the height of the container fill the entire viewport */
+    margin: 0; /* Remove any default margins */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+ 
+  
+  .form-group {
+    margin-bottom: 20px;
+    border-radius: 20px;
+  }
+  
+
+  
+  .input-group-append .btn {
+    cursor: pointer;
+  }
+
+  .btn.btn-primary.btn-block.mt-3{
+    background-color:pink;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .h2{
+    margin-bottom: 20px;
+    font-weight: 900;
+  }
+  

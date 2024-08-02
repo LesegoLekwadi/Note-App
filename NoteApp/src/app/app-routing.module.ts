@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './Component/home/home.component';
 import { CategoriesComponent } from './Component/categories/categories.component';
 import { NoteListComponent } from './Component/note-list/note-list.component';
 
@@ -8,12 +7,13 @@ import { LandingPageComponent } from './Component/landing-page/landing-page.comp
 import { IntroComponent } from './Component/intro/intro.component';
 import { LoginComponent } from './Component/login/login.component';
 import { EditNoteComponent } from './Component/edit-note/edit-note.component';
+import { RegisterComponent } from './Component/register/register.component';
 
 export const routes: Routes = [
   {path: 'landing', component: LandingPageComponent},
   {path: 'intro', component: IntroComponent},
   {path: 'login', component: LoginComponent},
-  { path: 'home', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'notes', component: NoteListComponent },
   { path: 'edit', component: EditNoteComponent },

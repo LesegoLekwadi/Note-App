@@ -1,17 +1,23 @@
 <div class="notes-container">
   <header class="app-header">
     <div class="logo">
-      <img src="path-to-your-logo-image.png" alt="Lao Note Logo">
+      <img src="assets\images\note.jpg" alt=" Logo">
       <span>Lao Note</span>
     </div>
     <div class="icons">
-      <img src="path-to-refresh-icon.png" alt="Refresh">
-      <img src="path-to-notification-icon.png" alt="Notifications">
+      <div class="icons">
+        <button class="search">
+            <span class="bi bi-search"></span>
+        </button>
+        <button class="menu">
+            <span class="bi bi-three-dots-vertical"></span>
+        </button>
+    </div>
     </div>
   </header>
   <nav class="tabs">
     <button class="active">Notes</button>
-    <button>Highlights</button>
+    <button>Bookmarked</button>
     <button>Favorite Notes</button>
   </nav>
   <section class="notes-list">
@@ -31,11 +37,12 @@
       <div class="new-badge" *ngIf="note.new">New</div>
     </div>
   </section>
-  <footer class="bottom-nav">
-    <button class="nav-button home"></button>
+  <!-- <footer class="bottom-nav">
+    <button class="nav-button file"><i class="bi bi-house"></i></button>
     <button class="nav-button crown"></button>
     <button class="nav-button grid"></button>
     <button class="nav-button settings"></button>
-  </footer>
+  </footer> -->
+  
   <button class="add-note-button">+</button>
 </div>
