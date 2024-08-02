@@ -17,7 +17,7 @@ export const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'notes', component: NoteListComponent },
   { path: 'edit', component: EditNoteComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'landing', pathMatch: 'full'},
 
 ];
 
