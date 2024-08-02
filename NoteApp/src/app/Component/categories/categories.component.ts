@@ -18,6 +18,8 @@ export class CategoriesComponent {
   getCategories() {
     this.categoriesService.getCategories().subscribe((data: any[]) => {
       this.categories = data;
+      
+      
     });
   }
 

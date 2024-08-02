@@ -2,16 +2,48 @@
   <header class="app-header">
     <div class="logo">
       <img src="assets\images\note.jpg" alt=" Logo">
-      <span>Lao Note</span>
+      <!-- <span>NOTENEST</span> -->
     </div>
     <div class="icons">
       <div class="icons">
-        <button class="search">
-            <span class="bi bi-search"></span>
-        </button>
-        <button class="menu">
-            <span class="bi bi-three-dots-vertical"></span>
-        </button>
+       <!-- Search button to toggle search input visibility -->
+    <button class="search" (click)="toggleSearchInput()">
+      <span class="bi bi-search"></span>
+  </button>
+
+  <!-- Search input field (hidden by default) -->
+  <input
+    *ngIf="searchInputVisible"
+    type="text"
+    [(ngModel)]="searchQuery"
+    placeholder="Search notes..."
+    (keyup.enter)="searchNotes()"
+  />
+
+  <!-- Search button to perform search -->
+  <button
+    *ngIf="searchInputVisible"
+    class="search-btn"
+    (click)="searchNotes()"
+  >
+    Search
+  </button>
+  
+
+<!-- Button to open the menu -->
+<button class="menu" (click)="toggleMenu()">
+    <span class="bi bi-three-dots-vertical"></span>
+</button>
+
+<!-- Menu element -->
+<div class="menu-content" [ngClass]="{'show': isMenuOpen}">
+    <ul>
+        <li><a [routerLink]="['/categories']">Categories</a></li>
+        <li><a href="#">All Notes</a></li>
+        <li><a href="#">Log Out</a></li>
+    </ul>
+</div>
+
     </div>
     </div>
   </header>
@@ -25,7 +57,7 @@
       <h2>List Notes</h2>
       <span>All Notes</span>
     </header>
-    <div class="note-card" *ngFor="let note of notes">
+    <div class="note-card" *ngFor="let note of notes" (click)="goToNoteDetail(note)">
       <h3>{{ note.title }}</h3>
       <p>{{ note.description }}</p>
       <div class="tags">
@@ -44,5 +76,5 @@
     <button class="nav-button settings"></button>
   </footer> -->
   
-  <button class="add-note-button">+</button>
+  <button class="add-note-button" [routerLink]="'/add'">+</button>
 </div>

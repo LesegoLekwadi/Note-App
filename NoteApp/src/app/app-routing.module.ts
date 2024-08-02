@@ -8,6 +8,7 @@ import { IntroComponent } from './Component/intro/intro.component';
 import { LoginComponent } from './Component/login/login.component';
 import { EditNoteComponent } from './Component/edit-note/edit-note.component';
 import { RegisterComponent } from './Component/register/register.component';
+import { AddNoteComponent } from './Component/add-note/add-note.component';
 
 export const routes: Routes = [
   {path: 'landing', component: LandingPageComponent},
@@ -17,6 +18,8 @@ export const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'notes', component: NoteListComponent },
   { path: 'edit', component: EditNoteComponent },
+  { path: 'edit-note/:id', component: EditNoteComponent },
+  { path: 'add', component: AddNoteComponent },
   { path: '', redirectTo: 'landing', pathMatch: 'full'},
 
 ];

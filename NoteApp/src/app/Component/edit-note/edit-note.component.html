@@ -1,9 +1,8 @@
 <div class="container-fluid edit-note-container">
-  <header class="app-header d-flex justify-content-between align-items-center py-3">
-    <button class="btn btn-outline-secondary rounded-circle" (click)="cancel()"><i class="bi bi-x"></i></button>
-    <h1 class="h5 mb-0">Edit Note</h1>
-    <button class="btn btn-outline-secondary rounded-circle" (click)="saveNote()"><i class="bi bi-check"></i></button>
-  </header>
+  
+ 
+  <h2 class="header">Edit Note</h2>
+
   <div class="form-group">
     <label for="noteTitle" class="form-label">Title</label>
     <input type="text" id="noteTitle" class="form-control" [(ngModel)]="note.title">
@@ -14,11 +13,16 @@
   </div>
   <div class="form-group">
     <label for="noteCategory" class="form-label">Category</label>
-    <input type="text" id="noteCategory" class="form-control" [(ngModel)]="note.category">
+    <input type="text" id="noteCategory" class="form-control" [(ngModel)]="note.category.name">
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="noteTags" class="form-label">Tags</label>
     <input type="text" id="noteTags" class="form-control" [(ngModel)]="note.tags">
-  </div>
+  </div> -->
+
+  <div class="button-container">
+    <button class="btn btn-outline-secondary rounded-circle" (click)="cancel()"><i class="bi bi-x"></i></button>
+    <button class="btn btn-outline-secondary rounded-circle" (click)="saveNote()" [routerLink]="'/notes'"><i class="bi bi-check"></i></button>
+    </div>
 </div>
 

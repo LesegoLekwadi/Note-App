@@ -14,6 +14,7 @@ import { IntroComponent } from './Component/intro/intro.component';
 import { RegisterComponent } from './Component/register/register.component';
 import { EditNoteComponent } from './Component/edit-note/edit-note.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddNoteComponent } from './Component/add-note/add-note.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     IntroComponent,
     RegisterComponent,
-    EditNoteComponent
+    EditNoteComponent,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,
