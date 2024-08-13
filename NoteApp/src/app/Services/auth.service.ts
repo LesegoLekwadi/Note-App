@@ -1,14 +1,11 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  login(userEmail: string, token: string) {
-    throw new Error('Method not implemented.');
-  }
 
   private apiUrl = 'http://localhost:8080/api/v1/auth';
 
@@ -36,5 +33,19 @@ export class AuthService {
 
   resetPassword(email: string, newPassword: string): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/reset-password`, { email, newPassword });
+  }
+
+  login(email: string, token: string): void {
+    localStorage.setItem('token', token);
+    localStorage.setItem('userEmail', email);
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userEmail');
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
   }
 }

@@ -1,12 +1,33 @@
 .landing-page {
     text-align: center;
     padding: 20px;
-  }
-  
-  .landing-page img {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     width: 100%;
-  
+    overflow: hidden;
+    background: linear-gradient(
+      to bottom, 
+      rgba(253, 253, 253, 0) 50%, 
+      rgba(255, 229, 180, 1) 100%
+    );
   }
+  
+  .home {
+    width: 100%;
+    background: linear-gradient(
+    to bottom, 
+    rgba(255, 229, 180, 0) 50%, 
+    rgb(251, 251, 250) 100%
+  ), 
+    url('/assets/images/aura.jpg') no-repeat center center;
+  background-size: cover;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4D2A2A;
+}
   
   .landing-page h1 {
     font-size: 24px;
@@ -36,8 +57,18 @@
   }
 
   .content{
+    background: linear-gradient(
+    to bottom, 
+    rgb(253, 253, 252) 0%, 
+    hsl(30, 33%, 99%) 100%
 
-    border-radius: 20px;;
+  );
+   
+  padding: 20px;
+  text-align: center;
+  font-family: serif;
+  font-weight: 100;
+  border-radius: 20px;
   }
   
   

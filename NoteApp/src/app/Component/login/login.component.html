@@ -1,43 +1,35 @@
 <div class="login-screen">
-    <div class="login-container">
-      <h2>Log In</h2>
-  
-  
-      <form>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email">
+  <div class="login-container">
+    <h2>Log In</h2>
+    <form [formGroup]="login" (ngSubmit)="signInForm()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+        <div *ngIf="login.get('email')?.invalid && (login.get('email')?.dirty || login.get('email')?.touched)" class="text-danger">
+          <p *ngIf="login.get('email')?.errors?.['email']">Invalid email format.</p>
         </div>
-  
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter your password">
-          <span class="show-password">
-            <i class="fa fa-eye"></i>
-          </span>
-        </div>
-  
-        <!-- <a href="#" class="forgot-password">Forgot Password?</a> -->
-  
-        <button type="submit" class="login-button" [disabled]="login.invalid" [routerLink]="'/notes'">Log In</button>
-      </form>
-  
-      <p>Don't have an account? <a routerLink="/register">Register</a></p>
-
-
-      <div class="or-divider">
-        <hr>
-        <span>Or Log In using Google</span>
-        <hr>
       </div>
-
-
-      <button class="google-login-button" ><i class="bi bi-google"></i>
-        Log In with Google
-      </button>
-
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+        <span class="show-password">
+          <i class="fa fa-eye"></i>
+        </span>
+      </div>
+      <button type="submit" class="login-button" [disabled]="login.invalid">Log In</button>
+    </form>
+    <p>Don't have an account? <a routerLink="/register">Register</a></p>
+    <div class="or-divider">
+      <hr>
+      <span>Or Log In using Google</span>
+      <hr>
     </div>
+    <button class="google-login-button">
+      <i class="bi bi-google"></i> Log In with Google
+    </button>
+    <!-- Error message -->
+    <p *ngIf="error" class="text-danger">{{ error }}</p>
+    <!-- Success message -->
+    <p *ngIf="successMessage" class="text-success">{{ successMessage }}</p>
   </div>
-
-
-  
+</div>

@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -9,13 +9,13 @@ import { AuthService } from 'src/app/Services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
   public Register!: FormGroup;
   public userLoggedIn: boolean = false;
   public userEmail: string = '';
   public error: string | null = null;
-  public successMessage: string | null = null; // Success message
+  public successMessage: string | null = null;
   private token: string | undefined;
 
   constructor(private formbuilder: FormBuilder, private http: HttpClient, private router: Router, private authservice: AuthService) {}
@@ -42,10 +42,10 @@ export class RegisterComponent {
     const cpassword = formgroup.get('cpassword')?.value;
 
     if (password === cpassword) {
-      return null; // Passwords match
+      return null;
     } else {
-      formgroup.get('cpassword')?.setErrors({ passwordMismatch: true }); // Set custom error
-      return { passwordMismatch: true }; // Passwords don't match
+      formgroup.get('cpassword')?.setErrors({ passwordMismatch: true });
+      return { passwordMismatch: true };
     }
   }
 
@@ -59,23 +59,22 @@ export class RegisterComponent {
         const token = resp.token;
         if (token) {
           this.token = token;
-          localStorage.setItem("token", token); // Store token in localStorage
+          localStorage.setItem("token", token);
         }
-        this.error = null; // Clear any previous error
-        this.successMessage = 'Registered successfully'; // Set success message
-        this.userEmail = newUser.email; // Update userEmail with the registered email
+        this.error = null;
+        this.successMessage = 'Registered successfully';
+        this.userEmail = newUser.email;
         this.userLoggedIn = true;
         this.Register.reset();
 
-        // Set a timeout to clear success message after a few seconds
         setTimeout(() => {
           this.successMessage = null;
-          this.router.navigate(["home"]);
-          this.authservice.login(this.userEmail, token);
-        }, 1000); // 1000 milliseconds = 1 second
+          this.router.navigate(["/notes"]);
+          this.authservice.login(this.userEmail, token); // Use login method from AuthService
+        }, 1000);
       },
       (error: HttpErrorResponse) => {
-        this.successMessage = null; // Clear any previous success message
+        this.successMessage = null;
         if (error.status === 409) {
           this.error = 'User already exists. Please try logging in.';
         } else if (error.status === 404) {
@@ -86,5 +85,4 @@ export class RegisterComponent {
       }
     );
   }
-
 }
