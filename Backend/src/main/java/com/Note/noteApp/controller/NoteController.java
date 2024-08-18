@@ -1,6 +1,5 @@
 package com.Note.noteApp.controller;
 
-
 import com.Note.noteApp.entity.Note;
 import com.Note.noteApp.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,30 +32,24 @@ public class NoteController {
         return noteService.updateNote(id, note);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Note> createNote(@RequestBody Note note) {
         try {
             Note createdNote = noteService.save(note);
             return new ResponseEntity<>(createdNote, HttpStatus.CREATED);
         } catch (Exception e) {
-            // Log the exception
             e.printStackTrace();
-            // Provide a meaningful error message
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PostMapping
-    public ResponseEntity<?> addNote(@RequestBody Note note) {
+    @PostMapping("/add")
+    public ResponseEntity<Note> addNote(@RequestBody Note note) {
         try {
             Note createdNote = noteService.addNote(note);
             return new ResponseEntity<>(createdNote, HttpStatus.CREATED);
         } catch (Exception e) {
-            // Log the exception
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
 }
-
