@@ -6,4 +6,6 @@ export interface Note {
     content: string;
     category: Category;
     tags: string;
+    date: Date;
+    isNew?: boolean; 
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NotesService } from 'src/app/Services/notes.service';
 import { Note } from 'src/app/note';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-note-list',
@@ -10,22 +11,35 @@ import { Note } from 'src/app/note';
 })
 export class NoteListComponent{
 
-  notes: any[] = [];
+  notes: Note[] = [];
   filteredNotes: Note[] = [];
   searchQuery: string = '';
   searchInputVisible: boolean = false;
 
-  constructor(private notesService: NotesService,private router: Router) { }
+  userId: number; // Assuming you have user authentication in place to get the user's ID
 
+  constructor(private notesService: NotesService, private router: Router) {
+    this.userId = 1; // Replace with actual logic to fetch the current user's ID
+  }
   ngOnInit(): void {
     this.getNotes();
   }
 
-  getNotes() {
-    this.notesService.getNotes().subscribe(data => {
-      this.notes = data;
-      this.filteredNotes = this.notes; 
-    });
+  getNotes(): void {
+    this.notesService.getNotesByUserId(this.userId).subscribe(
+      (data: Note[]) => {
+        this.notes = data;
+        this.filteredNotes = this.notes;
+      },
+      error => {
+        console.error('Error fetching notes:', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'There was an error fetching the notes.',
+          icon: 'error',
+        });
+      }
+    );
   }
 
 
