@@ -1,6 +1,7 @@
 package com.Note.noteApp.service;
 
 import com.Note.noteApp.entity.Category;
+import com.Note.noteApp.entity.Note;
 
 import java.util.List;
 

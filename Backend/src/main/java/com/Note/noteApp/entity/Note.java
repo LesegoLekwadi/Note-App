@@ -27,6 +27,11 @@ public class Note {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     //    private LocalDateTime date;
     private boolean isNew;
 }

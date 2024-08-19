@@ -40,5 +40,9 @@ public class NoteServiceImpl implements NoteService{
         // Add validation or business logic if needed
         return noteRepository.save(note);
     }
+
+    public List<Note> getNotesByUserId(Long userId) {
+        return noteRepository.findByUserId(userId);
+    }
 }
 

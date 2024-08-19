@@ -52,4 +52,9 @@ public class NoteController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/user/{userId}")
+    public List<Note> getNotesByUserId(@PathVariable Long userId) {
+        return noteService.getNotesByUserId(userId);
+    }
 }

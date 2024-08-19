@@ -12,4 +12,5 @@ public interface NoteService {
     public Optional<Note> getNoteById(Long id);
     public Note updateNote(Long id, Note noteDetails);
     public Note addNote(Note note);
+    List<Note> getNotesByUserId(Long userId);
 }
