@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NotesService } from 'src/app/Services/notes.service';
 import { Note } from 'src/app/note';
 import Swal from 'sweetalert2';
@@ -13,14 +13,13 @@ export class AddNoteComponent implements OnInit {
   note: Note = {
     title: '',
     content: '',
-    category: { id: 0, name: '', notesCount: 0 }, // Ensure this matches your category structure
+    category: { id: 152, name: '', notesCount: 0 }, // Category ID should be set based on selected category
     tags: '',
-    id: 0,
-    date: new Date(), // Initialize with current date or set a default value
-    isNew: false
+    id: 1,
+    date: new Date(),
   };
 
-  userId: number; // Assuming you have user authentication in place to get the user's ID
+  userId: number;
 
   constructor(
     private noteService: NotesService,
@@ -34,8 +33,12 @@ export class AddNoteComponent implements OnInit {
   }
 
   addNote(): void {
-    if (this.note.title && this.note.content) {
-      this.noteService.addNote(this.userId, this.note.title, this.note.content).subscribe(
+    if (this.note.title && this.note.content && this.note.category.name) {
+      // Ideally, you'd fetch the category ID based on the category name.
+      // For now, if the category name is hardcoded or mapped directly, set the ID accordingly:
+      // this.note.category.id = getCategoryIdFromName(this.note.category.name);
+
+      this.noteService.addNotes(this.note.title, this.note.content, 152, 1).subscribe(
         () => {
           Swal.fire({
             title: 'Note Added',
@@ -56,7 +59,7 @@ export class AddNoteComponent implements OnInit {
     } else {
       Swal.fire({
         title: 'Missing Information',
-        text: 'Please provide a title and content for the note.',
+        text: 'Please provide a title, content, and select a category for the note.',
         icon: 'warning',
       });
     }

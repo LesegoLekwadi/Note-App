@@ -12,18 +12,20 @@ export class NotesService {
   constructor(private http: HttpClient) { }
 
   // Method to add a new note
-  addNote(userId: number, title: string, content: string): Observable<number> {
+  addNote(userId: number, title: string, content: string, categoryId: number): Observable<number> {
     const params = new HttpParams()
       .set('userId', userId.toString())
       .set('title', title)
-      .set('content', content);
-
+      .set('content', content)
+      .set('category.id', categoryId.toString());
+  
     return this.http.post<number>(`${this.apiUrl}/add`, null, { params });
   }
+  
 
   // Method to fetch notes for a specific user
   getNotesByUserId(userId: number): Observable<Note[]> {
-    return this.http.get<Note[]>(`${this.apiUrl}/user/${userId}`)
+    return this.http.get<Note[]>(`${this.apiUrl}`)
       .pipe(
         catchError((error) => {
           console.error('Error getting notes:', error);
@@ -57,6 +59,21 @@ export class NotesService {
           return throwError(error);
         })
       );
+  }
+
+  addNotes(title: string, content: string, categoryId: number, userId: number): Observable<number> {
+    const noteData = {
+      title: title,
+      content: content,
+      category: {
+        id: categoryId
+      },
+      user: {
+        id: userId
+      }
+    };
+
+    return this.http.post<number>(`${this.apiUrl}/add`, noteData);
   }
 
   // Method to delete all notes for a specific user
